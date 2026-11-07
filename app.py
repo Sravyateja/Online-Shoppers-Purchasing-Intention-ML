@@ -22,14 +22,15 @@ from sklearn.metrics import (
 # --------------------------------------------------
 
 st.set_page_config(
-    page_title="Online Shopper Purchase Prediction",
-    page_icon="🛍️",
+    page_title="Online Shopper Purchasing Intention",
+    page_icon="assets/online-store.png",
     layout="wide",
 )
 
 # --------------------------------------------------
 # STYLING
 # --------------------------------------------------
+
 
 st.markdown(
     """
@@ -62,6 +63,38 @@ st.markdown(
     .subtle-note {
         color: #64748b;
         font-size: 0.9rem;
+    }
+
+    /* Dropdown selected value */
+    .stSelectbox div[data-baseweb="select"] div {
+        color: #000000 !important;
+    }
+
+    /* Dropdown options */
+    div[data-baseweb="popover"] ul li {
+        color: #000000 !important;
+    }
+
+    /* All buttons */
+    .stButton > button {
+        background-color: #3BE0D0 !important;
+        color: #000000 !important;
+        border: 1px solid #3BE0D0 !important;
+        border-radius: 8px !important;
+        font-weight: 600 !important;
+    }
+
+    /* Button hover */
+    .stButton > button:hover {
+        background-color: #25CDBD !important;
+        color: #000000 !important;
+        border-color: #25CDBD !important;
+    }
+
+    .stButton > button:focus {
+        color: #000000 !important;
+        border-color: #25CDBD !important;
+        box-shadow: 0 0 0 2px rgba(59, 224, 208, 0.3) !important;
     }
     </style>
     """,
@@ -166,7 +199,13 @@ def show_metric_cards(metrics):
 # HEADER
 # --------------------------------------------------
 
-st.title("🛍️ Online Shopper Purchasing Intention")
+logo_col, title_col = st.columns([0.12, 0.88], vertical_alignment="center")
+
+with logo_col:
+    st.image("assets/online-store.png", width=65)
+
+with title_col:
+    st.title("Online Shopper Purchasing Intention")
 st.markdown("**Machine Learning Classification Dashboard**")
 st.markdown(
     '<p class="subtle-note">Evaluate five trained classification models '
@@ -181,7 +220,13 @@ st.divider()
 
 try:
     trained_models = load_models()
-    st.success("All five trained models loaded successfully!", icon="✅")
+    icon_col, text_col = st.columns([0.06, 0.94])
+
+with icon_col:
+    st.image("assets/done.png", width=24)
+
+with text_col:
+    st.write("All five trained models loaded successfully!")
 except Exception as error:
     st.error(f"Model loading error: {error}")
     st.stop()
@@ -409,6 +454,6 @@ else:
 
 st.divider()
 st.caption(
-    "BITS Pilani | M.Tech Artificial Intelligence & Machine Learning | "
+    "BITS Pilani Wilp | M.Tech Artificial Intelligence & Machine Learning | "
     "Machine Learning Assignment 2"
 )
