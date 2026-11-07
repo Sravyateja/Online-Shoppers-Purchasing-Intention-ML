@@ -222,14 +222,16 @@ try:
     trained_models = load_models()
     icon_col, text_col = st.columns([0.06, 0.94])
 
-with icon_col:
-    st.image("assets/done.png", width=24)
+    with icon_col:
+        st.image("assets/done.png", width=24)
 
-with text_col:
-    st.write("All five trained models loaded successfully!")
+    with text_col:
+        st.write("All five trained models loaded successfully!")
+
 except Exception as error:
     st.error(f"Model loading error: {error}")
     st.stop()
+
 
 # --------------------------------------------------
 # DATASET UPLOAD AND VALIDATION
