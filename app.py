@@ -35,6 +35,19 @@ st.set_page_config(
 st.markdown(
     """
     <style>
+    /* Radio button - black selected state */
+div[data-testid="stRadio"] label[data-baseweb="radio"] > div:first-child {
+    border-color: #000000 !important;
+}
+
+div[data-testid="stRadio"] label[data-baseweb="radio"] > div:first-child > div {
+    background-color: #000000 !important;
+}
+
+/* Radio button hover */
+div[data-testid="stRadio"] label[data-baseweb="radio"]:hover > div:first-child {
+    border-color: #000000 !important;
+}
     .block-container {
         max-width: 1180px;
         padding-top: 2rem;
@@ -199,10 +212,13 @@ def show_metric_cards(metrics):
 # HEADER
 # --------------------------------------------------
 
-logo_col, title_col = st.columns([0.12, 0.88], vertical_alignment="center")
+logo_col, title_col = st.columns(
+    [0.10, 0.90],
+    vertical_alignment="center"
+)
 
 with logo_col:
-    st.image("assets/online-store.png", width=65)
+    st.image("assets/online-store.png", width=55)
 
 with title_col:
     st.title("Online Shopper Purchasing Intention")
@@ -220,10 +236,32 @@ st.divider()
 
 try:
     trained_models = load_models()
-    icon_col, text_col = st.columns([0.06, 0.94])
+
+    icon_col, text_col = st.columns(
+        [0.06, 0.94],
+        vertical_alignment="center"
+    )
 
     with icon_col:
-        st.image("assets/done.png", width=24)
+        st.markdown(
+            """
+            <div style="
+                width: 30px;
+                height: 30px;
+                background-color: #3BE0D0;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #000000;
+                font-size: 21px;
+                font-weight: bold;
+            ">
+                ✓
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
 
     with text_col:
         st.write("All five trained models loaded successfully!")
