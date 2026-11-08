@@ -63,6 +63,7 @@ st.markdown(
         color: #64748b;
         font-size: 0.9rem;
     }
+    
     </style>
     """,
     unsafe_allow_html=True,
@@ -173,7 +174,6 @@ st.markdown(
     'to predict whether an online shopping session results in a purchase.</p>',
     unsafe_allow_html=True,
 )
-st.divider()
 
 # --------------------------------------------------
 # LOAD MODELS
@@ -246,7 +246,6 @@ summary_col3.metric("No-purchase sessions", f"{int((y == 0).sum()):,}")
 with st.expander("Preview test data"):
     st.dataframe(data.head(5), use_container_width=True, height=190)
 
-st.divider()
 
 # --------------------------------------------------
 # EVALUATION MODE
@@ -279,7 +278,6 @@ if evaluation_mode == "Evaluate one model":
         st.markdown(f"#### {selected_model} — performance summary")
         show_metric_cards(metrics)
 
-        st.divider()
         st.markdown("#### Prediction analysis")
 
         cm = confusion_matrix(y, predictions, labels=[0, 1])
