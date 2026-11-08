@@ -65,7 +65,7 @@ The models were evaluated using the following metrics:
 
 ## 6. Model Comparison Results
 
-The following table presents the evaluation results obtained on the test dataset.
+The following table presents the evaluation results obtained on the held-out test dataset containing 2,441 records.
 
 | Model | Accuracy | AUC | Precision | Recall | F1-score | MCC |
 |---|---:|---:|---:|---:|---:|---:|
@@ -90,6 +90,8 @@ The following table presents the evaluation results obtained on the test dataset
 **Overall Conclusion:**
 
 Based on the comparison of all six evaluation metrics, Support Vector Machine (SVM) was selected as the overall best-performing model for this experiment. It achieved the highest accuracy, F1-score, and MCC, indicating the strongest overall balance among the evaluated models. Logistic Regression performed best in terms of AUC and precision.
+
+However, model selection may depend on the application objective, particularly the trade-off between identifying actual purchases and avoiding false-positive predictions.
 
 ## 8. Streamlit Application
 
@@ -175,6 +177,13 @@ https://online-shoppers-purchasing-intention-ml.streamlit.app/
 The machine learning implementation and model evaluation were performed using Python in the BITS Virtual Lab environment.
 
 The trained models were saved and subsequently integrated into the Streamlit application for evaluation using the held-out test dataset.
+
+The following key library versions were used:
+
+- Python: As provided in BITS Virtual Lab
+- NumPy: 1.26.4
+- SciPy: 1.13.1
+- Scikit-learn: 1.5.2
 
 ## 13. Technologies Used
 
