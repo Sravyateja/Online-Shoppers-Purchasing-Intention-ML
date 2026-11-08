@@ -108,22 +108,26 @@ A Streamlit-based web application was developed to demonstrate the trained class
 
 The application loads the previously trained and saved models. It does not retrain the models when evaluating uploaded test data.
 
+
 ## 9. Project Structure
 
 ```text
 Online-Shoppers-Purchasing-Intention-ML/
 │
+├── .devcontainer/
+├── assets/
+├── models/
+│   ├── decision_tree.pkl
+│   ├── knn.pkl
+│   ├── logistic_regression.pkl
+│   ├── naive_bayes.pkl
+│   └── svm.pkl
+│
 ├── app.py
 ├── Online_Shoppers_ML_Assignment.ipynb
 ├── test_data.csv
 ├── requirements.txt
-├── README.md
-│
-├── decision_tree.pkl
-├── knn.pkl
-├── logistic_regression.pkl
-├── naive_bayes.pkl
-└── svm.pkl
+└── README.md
 ```
 
 ## 10. Installation and Execution
@@ -154,6 +158,7 @@ streamlit run app.py
 
 Upload `test_data.csv` through the application to evaluate the trained models.
 
+
 ## 11. Repository and Application Links
 
 **GitHub Repository:**
@@ -162,9 +167,16 @@ https://github.com/Sravyateja/Online-Shoppers-Purchasing-Intention-ML
 
 **Live Streamlit Application:**
 
-To be added after deployment.
+https://online-shoppers-purchasing-intention-ml.streamlit.app/
 
-## 12. Technologies Used
+
+## 12. Execution Environment
+
+The machine learning implementation and model evaluation were performed using Python in the BITS Virtual Lab environment.
+
+The trained models were saved and subsequently integrated into the Streamlit application for evaluation using the held-out test dataset.
+
+## 13. Technologies Used
 
 - Python
 - Pandas
@@ -180,6 +192,6 @@ To be added after deployment.
 
 **Academic Programme:** M.Tech in Artificial Intelligence and Machine Learning
 
-**Institution:** BITS Pilani
+**Institution:** BITS Pilani Wilp
 
 **Assignment:** Machine Learning Assignment 2
