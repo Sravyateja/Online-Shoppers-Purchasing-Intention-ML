@@ -22,8 +22,8 @@ from sklearn.metrics import (
 # --------------------------------------------------
 
 st.set_page_config(
-    page_title="Online Shopper Purchasing Intention",
-    page_icon="assets/online-store.png",
+    page_title="Online Shopper Purchase Prediction",
+    page_icon="🛍️",
     layout="wide",
 )
 
@@ -31,23 +31,9 @@ st.set_page_config(
 # STYLING
 # --------------------------------------------------
 
-
 st.markdown(
     """
     <style>
-    /* Radio button - black selected state */
-div[data-testid="stRadio"] label[data-baseweb="radio"] > div:first-child {
-    border-color: #000000 !important;
-}
-
-div[data-testid="stRadio"] label[data-baseweb="radio"] > div:first-child > div {
-    background-color: #000000 !important;
-}
-
-/* Radio button hover */
-div[data-testid="stRadio"] label[data-baseweb="radio"]:hover > div:first-child {
-    border-color: #000000 !important;
-}
     .block-container {
         max-width: 1180px;
         padding-top: 2rem;
@@ -76,38 +62,6 @@ div[data-testid="stRadio"] label[data-baseweb="radio"]:hover > div:first-child {
     .subtle-note {
         color: #64748b;
         font-size: 0.9rem;
-    }
-
-    /* Dropdown selected value */
-    .stSelectbox div[data-baseweb="select"] div {
-        color: #000000 !important;
-    }
-
-    /* Dropdown options */
-    div[data-baseweb="popover"] ul li {
-        color: #000000 !important;
-    }
-
-    /* All buttons */
-    .stButton > button {
-        background-color: #3BE0D0 !important;
-        color: #000000 !important;
-        border: 1px solid #3BE0D0 !important;
-        border-radius: 8px !important;
-        font-weight: 600 !important;
-    }
-
-    /* Button hover */
-    .stButton > button:hover {
-        background-color: #25CDBD !important;
-        color: #000000 !important;
-        border-color: #25CDBD !important;
-    }
-
-    .stButton > button:focus {
-        color: #000000 !important;
-        border-color: #25CDBD !important;
-        box-shadow: 0 0 0 2px rgba(59, 224, 208, 0.3) !important;
     }
     </style>
     """,
@@ -212,16 +166,7 @@ def show_metric_cards(metrics):
 # HEADER
 # --------------------------------------------------
 
-logo_col, title_col = st.columns(
-    [0.10, 0.90],
-    vertical_alignment="center"
-)
-
-with logo_col:
-    st.image("assets/online-store.png", width=55)
-
-with title_col:
-    st.title("Online Shopper Purchasing Intention")
+st.title("Online Shopper Purchasing Intention")
 st.markdown("**Machine Learning Classification Dashboard**")
 st.markdown(
     '<p class="subtle-note">Evaluate five trained classification models '
@@ -236,40 +181,10 @@ st.divider()
 
 try:
     trained_models = load_models()
-
-    icon_col, text_col = st.columns(
-        [0.06, 0.94],
-        vertical_alignment="center"
-    )
-
-    with icon_col:
-        st.markdown(
-            """
-            <div style="
-                width: 30px;
-                height: 30px;
-                background-color: #3BE0D0;
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: #000000;
-                font-size: 21px;
-                font-weight: bold;
-            ">
-                ✓
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
-
-    with text_col:
-        st.write("All five trained models loaded successfully!")
-
+    st.success("All five trained models loaded successfully!")
 except Exception as error:
     st.error(f"Model loading error: {error}")
     st.stop()
-
 
 # --------------------------------------------------
 # DATASET UPLOAD AND VALIDATION
